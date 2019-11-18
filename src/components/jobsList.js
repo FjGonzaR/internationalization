@@ -1,5 +1,6 @@
 import React from 'react';
 import Job from "./job";
+import { FormattedMessage } from 'react-intl';
 
 export default class JobsList extends React.Component {
 
@@ -11,15 +12,17 @@ export default class JobsList extends React.Component {
     	  "company": "Schneider Electric", 
     	  "salary": 4.5,
     	  "city": "Bogotá, Colombia",
-        "date": "2019-03-26"
+        "date": "2019-03-26",
+        "visualizations" : 40080
       }, 
       {
         "id": "0002",
         "name": "Software Engineer",
         "company": "Google Inc.", 
-        "salary": 20,
+        "salary": 2,
         "city": "Palo Alto, CA, USA",
-        "date": "2019-03-27"
+        "date": "2019-03-27",
+        "visualizations" : 3554364
       },
       {
         "id": "0003",
@@ -27,7 +30,9 @@ export default class JobsList extends React.Component {
         "company": "Clínica La Aurora", 
         "salary": 1,
         "city": "Cali, Colombia",
-        "date": "2019-03-28"
+        "date": "2019-03-28",
+        "visualizations" : 230576587
+
       }
     ]
   };
@@ -36,14 +41,15 @@ export default class JobsList extends React.Component {
     return (
       <div>
         <table className="table">
-          <thead className="thead-dark">
+          <thead className={`thead-${navigator.language.includes('en')? "dark" : "light" }`}>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Position</th>
-              <th scope="col">Company</th>
-              <th scope="col">Salary</th>
-              <th scope="col">City</th>
-              <th scope="col">Publication date</th>
+              <th scope="col"><FormattedMessage id="Position" /></th>
+              <th scope="col"><FormattedMessage id="Company" /></th>
+              <th scope="col"><FormattedMessage id="Salary" /></th>
+              <th scope="col"><FormattedMessage id="City" /></th>
+              <th scope="col"><FormattedMessage id="PulibicationDate" /></th>
+              <th scope="col"><FormattedMessage id="Views" /></th>
             </tr>
           </thead>
           <tbody>
